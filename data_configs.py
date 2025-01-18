@@ -1,6 +1,6 @@
 DATASETS={
     'charades': {
-        'feature_path': '/home/zhengmh/Datasets/Charades/blip2_coco_features/',
+        'feature_path': '/root/autodl-tmp/Charades-STA/',
         'stride': 20,
         'max_stride_factor': 0.5,
         'splits': {
@@ -60,4 +60,15 @@ DATASETS={
             },
         }
     },
+    'summe': {
+        'feature_path':'',
+        'stride': 50,
+        'max_stride_factor': 0.5,
+        'splits': {
+            'default': {
+                'annotation_file':'',
+                'pad_sec': 0.0,
+            },
+        }
+    }
 }

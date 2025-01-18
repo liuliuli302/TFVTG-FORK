@@ -39,7 +39,7 @@ def loadvideo(fname, fps=3, stride=None, max_duration=None):
 
 
 @torch.no_grad()
-def get_visual_features(video_path, fps=None, stride=None, max_duration=None, batch_size=128):
+def get_visual_features(video_path, fps=None, stride=None, max_duration=None, batch_size=1):
     video = loadvideo(video_path, fps, stride, max_duration)
     img = vis_processors(video)
     features = []
