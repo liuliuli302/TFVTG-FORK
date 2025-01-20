@@ -39,7 +39,7 @@ def loadvideo(fname, fps=3, stride=None, max_duration=None):
 
 
 @torch.no_grad()
-def get_visual_features(video_path, fps=None, stride=None, max_duration=None, batch_size=1):
+def get_visual_features(video_path, fps=None, stride=None, max_duration=None, batch_size=128):
     video = loadvideo(video_path, fps, stride, max_duration)
     img = vis_processors(video)
     features = []
@@ -84,6 +84,7 @@ if __name__=='__main__':
         if os.path.exists(save_path):
             continue
         video_path = os.path.join(args.input_root, video_name)
-        features = get_visual_features(video_path, fps=args.fps, stride=args.stride, batch_size=args.batch_size)
-        np.save(save_path, features)
+        if not video_path == "/root/autodl-tmp/data/SumMe/videos/Cooking.mp4":
+            features = get_visual_features(video_path, fps=args.fps, stride=args.stride, batch_size=args.batch_size)
+            np.save(save_path, features)
 
